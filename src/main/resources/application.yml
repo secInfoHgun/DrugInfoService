@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/basetemplate
+#   url: jdbc:postgresql://localhost:5432/"NOME DO BANCO"
+    username: postgres
+    password: P@sswd1941
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
+# port: "VERIFICAR AS PORTAS NÃO UTILIZADAS E FAZER UTILIZAR UMA SEM ALOCAÇÃO"
+  tomcat:
+    relaxed-query-chars: '|,{,},[,]'
+  servlet:
+    context-path: /
+
+auth-api:
+  username: admin
+  password: admin
