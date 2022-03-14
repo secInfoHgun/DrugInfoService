@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BaseTemplateApplicationTests {
+class DrugInfoServiceApplicationTests {
 
     @Test
     void contextLoads() {

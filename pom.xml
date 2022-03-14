@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hgun.sti</groupId>
-    <artifactId>BaseTemplate</artifactId>
+    <artifactId>DrugInfoService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BaseTemplate</name>
-    <description>BaseTemplate</description>
+    <name>DrugInfoService</name>
+    <description>DrugInfoService</description>
     <properties>
         <java.version>11</java.version>
     </properties>
