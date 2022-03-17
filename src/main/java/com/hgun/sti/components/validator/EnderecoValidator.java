@@ -1,7 +1,7 @@
 package com.hgun.sti.components.validator;
 
 import com.hgun.sti.models.Endereco;
-import com.hgun.sti.models.error.EnderecoError;
+import com.hgun.sti.models.errors.EnderecoError;
 
 public class EnderecoValidator {
     public static EnderecoError validarEndereco(Endereco endereco){

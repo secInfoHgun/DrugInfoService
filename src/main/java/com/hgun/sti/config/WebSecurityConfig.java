@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -25,6 +26,10 @@ import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(
+        prePostEnabled = true,
+        securedEnabled = true,
+        jsr250Enabled = true)
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -68,11 +73,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
         http.authorizeRequests()
                 .antMatchers(staticResources).permitAll()
-
-                //funções abaixo apenas com a finalidade de template
-                .antMatchers(HttpMethod.POST, "/").permitAll()
-                .antMatchers(HttpMethod.GET,"/entrar" ).hasAnyAuthority("ATENDENTE", "ADMINISTRADOR")
-
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")
@@ -95,13 +95,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
                 var roles = usuario.getRoles();
 
-                for (Role role : roles) {
-                    if(role.getName().equals("ADMINISTRADOR")){
-                        response.sendRedirect("/administrador/especialidade");
-                    }else if(role.getName().equals("ATENDENTE")){
-                        response.sendRedirect("/atendente");
-                    }
-                }
+                response.sendRedirect("/");
             }
         };
 

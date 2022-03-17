@@ -1,4 +1,4 @@
-package com.hgun.sti.models.error;
+package com.hgun.sti.models.errors;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

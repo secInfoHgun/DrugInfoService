@@ -1,7 +1,7 @@
 package com.hgun.sti.components.validator;
 
 import com.hgun.sti.models.Usuario;
-import com.hgun.sti.models.error.UsuarioError;
+import com.hgun.sti.models.errors.UsuarioError;
 
 import java.util.List;
 

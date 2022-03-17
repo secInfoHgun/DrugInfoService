@@ -17,8 +17,12 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @SuperBuilder
 public abstract class AbstractPessoa extends AbstractEntidade {
-    String nome;
     String cpf;
+    String nome;
+    Integer idade;
+    Character sexo;
+    Double peso;
+
     String telefone;
     String email;
 
