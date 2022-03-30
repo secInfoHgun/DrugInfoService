@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class EnderecoError {
+
     private String cep;
     private String cidade;
     private String bairro;

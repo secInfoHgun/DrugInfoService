@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name="solicitante")
-public class Solicitante  extends AbstractPessoa {
+public class Solicitante extends AbstractPessoa {
     private String funcao;
 
     @OneToOne
