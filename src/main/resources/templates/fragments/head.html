@@ -1,7 +1,7 @@
 <body lang="pt-br" xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head(tituloPage)">
         <meta charset="utf-8" />
-        <link rel="icon" type="imagem/png" th:href="@{/img/logo.png}">
+        <link rel="icon" type="imagem/png" th:href="@{/img/logoHgun.png}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title th:text="${tituloPage}"></title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -15,6 +15,48 @@
         <link href="/demo/demo.css" rel="stylesheet" />
 
         <style>
+
+            .colorBntForm{
+                width: 200px;
+                height: 40px;
+                background-color: #0B8056;
+
+                border: none;
+                border-radius: 4px;
+
+                font-weight: bold;
+                color: white;
+                font-size: 14px;
+                transition: 0.4s;
+            }
+
+            .colorBntForm:hover{
+                background-color: #12af73;
+            }
+
+            #BNTEntrar{
+                width: 100px;
+                height: 42px;
+                padding: 10px;
+
+                border: 2px solid #0B8056;
+                background-color: white;
+                border-radius: 2px;
+
+                font-weight: bold;
+                font-size: 12px;
+                color: #0B8056;
+
+                text-decoration: none;
+                text-align: center;
+                transition: 0.4s;
+            }
+
+            #BNTEntrar:hover{
+                background-color: #0B8056;
+                color: white;
+            }
+
             .swal2-close:focus {
                 box-shadow: none !important;
             }
