@@ -19,8 +19,8 @@ public class Paciente extends AbstractPessoa {
 
     private String doencas;
     private String alergias;
-    private String MedicamentosEmUso;
-    private String UnidadeDeInternação;
+    private String medicamentosEmUso;
+    private String unidadeDeInternação;
     private String leito;
     private String admissao;
 

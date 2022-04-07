@@ -34,19 +34,24 @@
                 <img th:src="@{/img/logotipoSim.png}" width="350" alt="logo do sistema de informações sobre medicamentos">
             </div>
 
+            <br/>
+
             <div class="container">
-                <p>
+                <p style="font-size: 16px">
                     <strong>
                         O que é o SIM?
                     </strong>
                 </p>
-                <p>
+                <p style="font-size: 16px">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O processo de uso racional de medicamentos inicia com uma prescrição racional, ou seja, que atenda aos critérios de: indicação apropriada, medicamento apropriado, paciente apropriado e que receba informações adequadas sobre sua condição clínica e terápica, além da avaliação adequada dos resultados esperados e sua monitorização. Para que isso ocorra, os profissionais necessitam estar atualizados e ter acesso à informação de qualidade.
                 </p>
-                <p>
+                <p style="font-size: 16px">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Com isso foi cricado o "SIM", Serviço de Informação sobre Medicamentos, onde é proporcionado informação técnico-científica sobre medicamentos, de forma objetiva e oportuna, tendo o foco principal de promover o uso racional de medicamentos de forma segura, efetiva e econômica ao paciente, esclarecendo dúvidas sobre medicamentos ao público em geral (usuários ou profissionais de saúde), como por exemplo: efeitos colaterais, modo de usar, nome genérico, se o medicamento poderá ser usado com outros medicamentos, se existe riscos em usá-los durante a gravidez, amamentação dentre outras informações.
                 </p>
-                <p>
+
+                <br/>
+
+                <p style="font-size: 16px">
                     <strong>
                         Outros canais de atendimento?
                     </strong>
@@ -57,8 +62,11 @@
                     </ul>
                 </p>
 
-                <p>
-                    A equipe do formada pelor Farmacêuticos hospitalares utilizam ferramentas e conhecimentos da farmacoepidemiologia, farmacologia clinica e farmacologia baseada em evidências.                </p>
+                <br/>
+
+                <p style="font-size: 16px">
+                    A equipe do formada pelos Farmacêuticos hospitalares utilizam ferramentas e conhecimentos da farmacoepidemiologia, farmacologia clinica e farmacologia baseada em evidências.
+                </p>
             </div>
         </div>
         <div class="col-md-7 pl-1">
@@ -156,7 +164,7 @@
                         <div class="row">
                             <div class="col-md-6 pl-1">
                                 <div class="form-group">
-                                    <label style="color: #2a2b2d">Nome  <b style="color: red">*</b></label>
+                                    <label style="color: #2a2b2d">Nome</label>
                                     <input type="text" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.nome}" >
                                     <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.paciente.pessoa.nome != null}" th:text="${erros.paciente.pessoa.nome}"></label>
@@ -166,7 +174,7 @@
 
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
-                                    <label style="color: #2a2b2d">Idade  <b style="color: red">*</b></label>
+                                    <label style="color: #2a2b2d">Idade</label>
                                     <input type="text" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.idade != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.idade}" >
                                     <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.paciente.pessoa.idade != null}" th:text="${erros.paciente.pessoa.idade}"></label>
@@ -176,7 +184,7 @@
 
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
-                                    <label style="color: #2a2b2d">Sexo  <b style="color: red">*</b></label>
+                                    <label style="color: #2a2b2d">Sexo</label>
                                     <select th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.sexo}">
                                         <option th:value="null" required></option>
                                         <option th:value="M">Masculino</option>
@@ -187,7 +195,66 @@
 
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
-                                    <label style="color: #2a2b2d">Peso  <b style="color: red">*</b></label>
+                                    <label style="color: #2a2b2d">Peso</label>
+                                    <input type="number" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.peso != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.peso}" >
+                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
+                                        <label style="color: red" th:if="${erros.paciente.pessoa.peso != null}" th:text="${erros.paciente.pessoa.peso}"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Doenças</label>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.doencas != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.doencas}"></textarea>
+                                    <label style="color: red" th:if="${erros.paciente != null && erros.paciente.doencas != null}" th:text="${erros.paciente.doencas}"></label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Alergias</label>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.alergias != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.alergias}"></textarea>
+                                    <label style="color: red" th:if="${erros.paciente != null && erros.paciente.alergias != null}" th:text="${erros.perguntas}"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Medicamentos em uso</label>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.medicamentosEmUso != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.medicamentosEmUso}"></textarea>
+                                    <label style="color: red" th:if="${ erros.paciente != null && erros.paciente.medicamentosEmUso != null }" th:text="${erros.paciente.medicamentosEmUso}"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Condição especial</label>
+                                    <select th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.sexo}">
+                                        <option th:value="null" required></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Unidade de internação</label>
+                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.idade != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.idade}" >
+                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
+                                        <label style="color: red" th:if="${erros.paciente.pessoa.idade != null}" th:text="${erros.paciente.pessoa.idade}"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Leito</label>
                                     <input type="number" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.peso != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.peso}" >
                                     <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.paciente.pessoa.peso != null}" th:text="${erros.paciente.pessoa.peso}"></label>
@@ -195,51 +262,17 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-2 pl-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Admissão</label>
+                                    <input type="number" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.peso != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.peso}" >
+                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
+                                        <label style="color: red" th:if="${erros.paciente.pessoa.peso != null}" th:text="${erros.paciente.pessoa.peso}"></label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-8 pl-1">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label style="color: #2a2b2d">E-mail <b style="color: red">*</b></label>-->
-<!--                                    <input type="email" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.email != null ? 'form-control is-invalid' : 'form-control'}" required th:field="*{solicitante.email}">-->
-<!--                                    <div th:if="${erros.solicitante != null && erros.solicitante.pessoa != null}">-->
-<!--                                        <label style="color: red" th:if="${erros.solicitante.pessoa.email != null}" th:text="${erros.solicitante.pessoa.email}"></label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-4 pl-1">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label style="color: #2a2b2d">Setor <b style="color: red">*</b></label>-->
-<!--                                    <select th:class="${erros.solicitante != null && erros.solicitante.tipoSetor != null ? 'form-control is-invalid' : 'form-control'}" required th:field="*{solicitante.tipoSetor.id}">-->
-<!--                                        <option th:value="null"></option>-->
-<!--                                        <option th:value="${tipo.id}" th:each="tipo : ${listaTipoSetor}" th:text="${tipo.nome}"></option>-->
-<!--                                    </select>-->
-<!--                                    <label style="color: red" th:if="${erros.solicitante != null && erros.solicitante.tipoSetor != null}" th:text="${erros.solicitante.tipoSetor}"></label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-6 pl-1">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label style="color: #2a2b2d">Telefone <b style="color: red">*</b></label>-->
-<!--                                    <input type="email" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.telefone != null ? 'form-control is-invalid' : 'form-control'}" data-mask="(00) 00000-0000" required th:field="*{solicitante.telefone}">-->
-<!--                                    <div th:if="${erros.solicitante != null && erros.solicitante.pessoa != null}">-->
-<!--                                        <label style="color: red" th:if="${erros.solicitante.pessoa.telefone != null}" th:text="${erros.solicitante.pessoa.telefone}"></label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-6 pl-1">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label style="color: #2a2b2d">Como deseja receber a resposta? <b style="color: red">*</b></label>-->
-<!--                                    <select th:class="${erros.solicitante != null && erros.solicitante.tipoEnvioResposta != null ? 'form-control is-invalid' : 'form-control'}" required th:field="*{solicitante.tipoEnvioResposta.id}">-->
-<!--                                        <option th:value="null"></option>-->
-<!--                                        <option th:value="${tipo.id}" th:each="tipo : ${listaTipoEnvioResposta}" th:text="${tipo.nome}"></option>-->
-<!--                                    </select>-->
-<!--                                    <label style="color: red" th:if="${erros.solicitante != null && erros.solicitante.tipoEnvioResposta != null}" th:text="${erros.solicitante.tipoEnvioResposta}"></label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
 
                         <div class="row">
                             <div class="ml-auto mr-auto">
