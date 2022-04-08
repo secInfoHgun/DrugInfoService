@@ -20,9 +20,10 @@ public class Paciente extends AbstractPessoa {
     private String doencas;
     private String alergias;
     private String medicamentosEmUso;
-    private String unidadeDeInternação;
+    private String unidadeDeInternacao;
     private String leito;
     private String admissao;
+    private String outrasCondicoesEspeciais;
 
     @OneToOne
     private TipoCondicaoEspecial tipoCondicaoEspecial;

@@ -238,6 +238,7 @@
                                     <label style="color: #2a2b2d">Condição especial</label>
                                     <select th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.sexo}">
                                         <option th:value="null" required></option>
+                                        <option th:value="${tipo.id}" th:each="tipo : ${listaTipoCondicaoEspecial}" th:text="${tipo.nome + (tipo.descricao != '' ? ('  ('+tipo.descricao)+')' : '')}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -245,30 +246,24 @@
                             <div class="col-md-4 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Unidade de internação</label>
-                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.idade != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.idade}" >
-                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
-                                        <label style="color: red" th:if="${erros.paciente.pessoa.idade != null}" th:text="${erros.paciente.pessoa.idade}"></label>
-                                    </div>
+                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.unidadeDeInternacao != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.unidadeDeInternacao}" >
+                                    <label style="color: red" th:if="${erros.paciente != null && erros.paciente.unidadeDeInternacao != null}" th:text="${erros.paciente.unidadeDeInternacao}"></label>
                                 </div>
                             </div>
 
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Leito</label>
-                                    <input type="number" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.peso != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.peso}" >
-                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
-                                        <label style="color: red" th:if="${erros.paciente.pessoa.peso != null}" th:text="${erros.paciente.pessoa.peso}"></label>
-                                    </div>
+                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.leito != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.leito}" >
+                                    <label style="color: red" th:if="${ erros.paciente != null && erros.paciente.leito != null }" th:text="${erros.paciente.pessoa.idade}"></label>
                                 </div>
                             </div>
 
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Admissão</label>
-                                    <input type="number" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.peso != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.peso}" >
-                                    <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
-                                        <label style="color: red" th:if="${erros.paciente.pessoa.peso != null}" th:text="${erros.paciente.pessoa.peso}"></label>
-                                    </div>
+                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.admissao != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.admissao}" >
+                                    <label style="color: red" th:if="${ erros.paciente != null && erros.paciente.admissao != null }" th:text="${erros.paciente.admissao}"></label>
                                 </div>
                             </div>
                         </div>
