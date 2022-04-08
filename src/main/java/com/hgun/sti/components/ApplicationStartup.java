@@ -43,6 +43,21 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
         var listaTipoCondicaoEspecial = tipoCondicaoEspecialRepository.findAll();
         var listaTipoEnvioResposta = tipoEnvioRespostaRepository.findAll();
 
+        if(roles.isEmpty()){
+
+            String[] roleLabes = { "ADMINISTRADOR" , "FUNCIONARIO" };
+
+            for (String i: roleLabes) {
+                var newRole =  new Role();
+
+                newRole.setName(i);
+                newRole.setAtivo(true);
+
+                roleRepository.save(newRole);
+            }
+
+            System.out.println("cadastrei as roles");
+        }
 
         if(usuarioSuporte == null){
             var newUsuario = new Usuario();
@@ -65,22 +80,6 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
         }else{
             usuarioSuporte.setAtivo(true);
             usuarioRepository.save(usuarioSuporte);
-        }
-
-        if(roles.isEmpty()){
-
-            String[] roleLabes = { "ADMINISTRADOR" , "FUNCIONARIO" };
-
-            for (String i: roleLabes) {
-                var newRole =  new Role();
-
-                newRole.setName(i);
-                newRole.setAtivo(true);
-
-                roleRepository.save(newRole);
-            }
-
-            System.out.println("cadastrei as roles");
         }
 
         if(listaTipoSetor.isEmpty()){

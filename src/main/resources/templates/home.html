@@ -72,7 +72,7 @@
         <div class="col-md-7 pl-1">
             <div class="card card-user">
                 <div class="card-body" style="padding: 40px">
-                    <form method="post" th:object="${questionamento}">
+                    <form method="post" th:action="@{/}" th:object="${questionamento}">
 
                         <div class="row">
                             <div class="col-md-12 pl-1">
@@ -84,7 +84,7 @@
                             <div class="col-md-7 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Nome  <b style="color: red">*</b></label>
-                                    <input type="text" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{solicitante.nome}" >
+                                    <input type="text" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.nome != null ? 'form-control is-invalid' : 'form-control'}" required th:field="*{solicitante.nome}" >
                                     <div th:if="${erros.solicitante != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.solicitante.pessoa.nome != null}" th:text="${erros.solicitante.pessoa.nome}"></label>
                                     </div>
@@ -93,7 +93,7 @@
                             <div class="col-md-5 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Função  <b style="color: red">*</b></label>
-                                    <input type="text" th:class="${ erros.solicitante != null && erros.solicitante.funcao != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{solicitante.funcao}">
+                                    <input type="text" th:class="${ erros.solicitante != null && erros.solicitante.funcao != null ? 'form-control is-invalid' : 'form-control'}" required th:field="*{solicitante.funcao}">
                                     <div th:if="${erros.solicitante != null}">
                                         <label style="color: red" th:if="${erros.solicitante.funcao != null}" th:text="${erros.solicitante.funcao}"></label>
                                     </div>
@@ -127,7 +127,7 @@
                             <div class="col-md-6 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Telefone <b style="color: red">*</b></label>
-                                    <input type="email" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.telefone != null ? 'form-control is-invalid' : 'form-control'}" data-mask="(00) 00000-0000" required th:field="*{solicitante.telefone}">
+                                    <input type="text" th:class="${ erros.solicitante != null && erros.solicitante.pessoa != null && erros.solicitante.pessoa.telefone != null ? 'form-control is-invalid' : 'form-control'}" data-mask="(00) 00000-0000" required th:field="*{solicitante.telefone}">
                                     <div th:if="${erros.solicitante != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.solicitante.pessoa.telefone != null}" th:text="${erros.solicitante.pessoa.telefone}"></label>
                                     </div>
@@ -208,7 +208,7 @@
                             <div class="col-md-6 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Doenças</label>
-                                    <textarea th:style="${ erros.paciente != null && erros.paciente.doencas != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.doencas}"></textarea>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.doencas != null ? 'border-color: red' : 'is-invalid'}" class="form-control" th:field="*{paciente.doencas}"></textarea>
                                     <label style="color: red" th:if="${erros.paciente != null && erros.paciente.doencas != null}" th:text="${erros.paciente.doencas}"></label>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
                             <div class="col-md-6 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Alergias</label>
-                                    <textarea th:style="${ erros.paciente != null && erros.paciente.alergias != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.alergias}"></textarea>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.alergias != null ? 'border-color: red' : 'is-invalid'}" class="form-control" th:field="*{paciente.alergias}"></textarea>
                                     <label style="color: red" th:if="${erros.paciente != null && erros.paciente.alergias != null}" th:text="${erros.perguntas}"></label>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                             <div class="col-md-12 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Medicamentos em uso</label>
-                                    <textarea th:style="${ erros.paciente != null && erros.paciente.medicamentosEmUso != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{paciente.medicamentosEmUso}"></textarea>
+                                    <textarea th:style="${ erros.paciente != null && erros.paciente.medicamentosEmUso != null ? 'border-color: red' : 'is-invalid'}" class="form-control" th:field="*{paciente.medicamentosEmUso}"></textarea>
                                     <label style="color: red" th:if="${ erros.paciente != null && erros.paciente.medicamentosEmUso != null }" th:text="${erros.paciente.medicamentosEmUso}"></label>
                                 </div>
                             </div>
@@ -283,10 +283,52 @@
 
 </main>
 
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <div class="icon-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="95" height="95" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                    </svg>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Enviado com sucesso!</h4>
+                <br/>
+                <p>Seu questionamento foi registrado e encaminhado para equipe de farmacêuticos hospitalares do HGuN.</p>
+                <p>Retornaremos o mais breve possível.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/imports :: imports"></div>
+
 
 <script type="text/javascript">
-
+    var cadastrou = [[${cadastrou}]];
+    if(cadastrou){
+        $(document).ready(function() {
+            $('#myModal').modal('show');
+        })
+        // Swal.fire({
+        //     icon: 'warning',
+        //     html:
+        //         '<h4>Questionamento registrado com sucesso!</h4>'+
+        //         '<br/>'+
+        //         '<p>Seu questionamento foi registrado e encaminhado para equipe de farmacêuticos hospitalares do HGuN.</p>'
+        //         +'<p>Retornaremos o mais breve possível.</p>',
+        //
+        //     showConfirmButton: false,
+        //     showCloseButton: true
+        // })
+    }
 
 </script>
 </body>
