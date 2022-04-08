@@ -175,7 +175,7 @@
                             <div class="col-md-2 pl-1">
                                 <div class="form-group">
                                     <label style="color: #2a2b2d">Idade</label>
-                                    <input type="text" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.idade != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.idade}" >
+                                    <input type="number" min="1" th:class="${ erros.paciente != null && erros.paciente.pessoa != null && erros.paciente.pessoa.idade != null ? 'form-control is-invalid' : 'form-control'}" th:field="*{paciente.idade}" >
                                     <div th:if="${erros.paciente != null && erros.solicitante.pessoa != null}">
                                         <label style="color: red" th:if="${erros.paciente.pessoa.idade != null}" th:text="${erros.paciente.pessoa.idade}"></label>
                                     </div>

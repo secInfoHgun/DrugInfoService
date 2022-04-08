@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,9 +17,7 @@ import javax.persistence.Table;
 @Table(name="questionamento")
 public class Questionamento extends AbstractEntidade {
 
-    private String data;
-
-    private String hora;
+    private Date data;
 
     @OneToOne
     private Solicitante solicitante;
