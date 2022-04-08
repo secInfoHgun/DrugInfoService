@@ -150,7 +150,7 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
             String[][] aux = {
                     {"E-MAIL", ""},
-                    {"TELEFONE", ""},
+                    {"IMPRESSO", ""},
             };
 
             for (String[] i: aux) {
