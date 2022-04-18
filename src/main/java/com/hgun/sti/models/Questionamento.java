@@ -26,6 +26,8 @@ public class Questionamento extends AbstractEntidade {
     @OneToOne
     private Solicitante solicitante;
 
+    private String resumo;
+
     private String perguntas;
 
     @OneToOne

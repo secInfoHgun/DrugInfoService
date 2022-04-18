@@ -97,7 +97,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
                 var roles = usuario.getRoles();
 
-                response.sendRedirect("/");
+                response.sendRedirect("/administrador/novas");
             }
         };
 

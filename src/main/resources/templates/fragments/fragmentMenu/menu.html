@@ -5,7 +5,7 @@
         <div class="logo">
             <a th:href="@{/}" class="simple-text logo-mini">
                 <div class="logo-image-small">
-                    <img src="/img/logo.png">
+                    <img src="/img/logoHgun.png">
                 </div>
             </a>
             <a th:href="@{/}" class="simple-text logo-normal">
@@ -14,12 +14,16 @@
         </div>
         <div class="sidebar-wrapper" style="overflow-x: hidden;">
             <ul class="nav">
+                <li>
+                    <a style="cursor: text">
+                        <i class="nc-icon nc-tile-56"></i>
+                        <p > Solicitações :</p>
+                    </a>
 
-<!--                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 1}, '/administrador', 'nc-icon nc-bank', 'Dashboard')"></li>-->
-                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 2}, '/administrador/especialidade', 'nc-icon nc-bullet-list-67', 'Especialidades')"></li>
-<!--                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 3}, '/administrador/funcionarios', 'nc-icon nc-single-02', 'Funcionarios')"></li>-->
-                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 4}, '/administrador/chat', 'nc-icon nc-chat-33', 'Chats')"></li>
+                </li>
 
+                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 1}, '/administrador/novas', '', 'Novas')"></li>
+                <li th:replace="fragments/fragmentMenu/li :: li(${indice == 2}, '/administrador/finalizadas', '', 'Finalizadas')"></li>
             </ul>
 
             <ul class="nav fixed-bottom" style="margin-bottom: 20px; width: inherit;">

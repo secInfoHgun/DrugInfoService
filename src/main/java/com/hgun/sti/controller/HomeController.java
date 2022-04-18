@@ -9,6 +9,7 @@ import com.hgun.sti.repository.types.TipoCondicaoEspecialRepository;
 import com.hgun.sti.repository.types.TipoEnvioRespostaRepository;
 import com.hgun.sti.repository.types.TipoSetorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import java.util.Date;
 
 
 @Controller
+@PreAuthorize("permitAll()")
 @RequestMapping("/")
 public class HomeController {
 
@@ -62,9 +64,6 @@ public class HomeController {
 
     @PostMapping
     public String cadastro(@ModelAttribute Questionamento questionamento, RedirectAttributes redirectAttributes){
-
-        //FALTA FAZER A VALIDAÇÃO DOS CAMPOS
-
 
         var paciente = pacienteRepository.save(questionamento.getPaciente());
         var solicitante = solicitanteRepository.save(questionamento.getSolicitante());

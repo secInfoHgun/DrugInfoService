@@ -12,6 +12,7 @@ public class QuestionamentoError {
 
     private String data;
     private String hora;
+    private String resumo;
     private String perguntas;
     private SolicitanteError solicitante;
     private PacienteError paciente;
@@ -20,6 +21,8 @@ public class QuestionamentoError {
         if(data != null  && !data.isEmpty()){
             return false;
         }else if(hora != null && !hora.isEmpty()){
+            return false;
+        }else if(resumo != null && !resumo.isEmpty()){
             return false;
         }else if(perguntas != null && !perguntas.isEmpty()){
             return false;

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/head :: head('Solicitações')"></div>
+
+<body style="background-color: #f4f3ef">
+
+<div class="wrapper">
+
+    <div th:replace="fragments/fragmentMenu/menu :: menu(${menuValor})"></div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand" th:text="${titlePage}"></a>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="navbar-nav">
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main th:class="${questionamentos.size() == 0 ? 'content text-center' : 'content' }" style="margin-left: auto; margin-right: auto; margin-top: 100px; width: 900px;">
+            <a th:each="questionamento : ${questionamentos}" th:href="@{'/administrador/view/' + ${questionamento.id}}" class="card card-user position-relative" style="margin-top: 20px; width: 900px; height: 180px; text-decoration: none; ">
+                <div class="card-body" style="padding: 40px; height: 180px;">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <b class="fw-bold" th:text="${questionamento.resumo}"></b>
+                            <div th:text="'Solicitante: '+ ${questionamento.solicitante.nome}" style="margin-bottom: 10px; margin-top: 10px"></div>
+                            <div th:text="'Setor: '+ ${questionamento.solicitante.tipoSetor.nome} + ${(questionamento.solicitante.tipoSetor.nome != '' ? ('  ('+questionamento.solicitante.tipoSetor.descricao)+')' : '')}" style="margin-bottom: 5px; margin-top: 5px"></div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill" th:text="${questionamento.data}" style="color: white"></span>
+                    </div>
+                </div>
+            </a>
+            <h3 th:if="${questionamentos.size() == 0}" style="margin-top: 180px">
+                Não há solicitações!
+            </h3>
+        </main>
+    </div>
+</div>
+
+<div th:replace="fragments/imports :: imports"></div>
+
+</body>
+</html>

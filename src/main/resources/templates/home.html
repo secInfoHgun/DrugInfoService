@@ -17,7 +17,7 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" style="margin-right: 50px">
 
-                <a th:href="@{/administrador/ocorrencias/novas}" id="BNTEntrar">
+                <a th:href="@{/login}" id="BNTEntrar">
                     ENTRAR
                 </a>
 
@@ -141,6 +141,22 @@
                                         <option th:value="${tipo.id}" th:each="tipo : ${listaTipoEnvioResposta}" th:text="${tipo.nome}"></option>
                                     </select>
                                     <label style="color: red" th:if="${erros.solicitante != null && erros.solicitante.tipoEnvioResposta != null}" th:text="${erros.solicitante.tipoEnvioResposta}"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 pl-1">
+                                <h6 style="color: #2a2b2d">Dados da solicitação</h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 px-1">
+                                <div class="form-group">
+                                    <label style="color: #2a2b2d">Título <b style="color: red">*</b></label>
+                                    <input th:style="${ erros.resumo != null ? 'border-color: red' : 'is-invalid'}" class="form-control" required th:field="*{resumo}"/>
+                                    <label style="color: red" th:if="${erros.resumo != null}" th:text="${erros.resumo}"></label>
                                 </div>
                             </div>
                         </div>
